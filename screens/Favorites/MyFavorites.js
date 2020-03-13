@@ -1,11 +1,11 @@
 import React from 'react';
 
 export default function HomeScreen() {
-  return (
-    <></>
-  );
+    return (
+        <></>
+    );
 }
 
 HomeScreen.navigationOptions = {
-  header: null,
+    header: null,
 };
