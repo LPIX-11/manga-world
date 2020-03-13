@@ -1,16 +1,14 @@
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
+import Favorites from '../screens/Favorites/MyFavorites';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import Reading from '../screens/Preferences/Reading';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 export default function BottomTabNavigator({ navigation, route }) {
-  // Set the header title on the parent stack navigator depending on the
-  // currently active tab. Learn more in the documentation:
-  // https://reactnavigation.org/docs/en/screen-options-resolution.html
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
@@ -24,8 +22,8 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Reading"
+        component={Reading}
         options={{
           title: 'Reading',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
@@ -34,7 +32,7 @@ export default function BottomTabNavigator({ navigation, route }) {
 
       <BottomTab.Screen
         name="Favs"
-        component={LinksScreen}
+        component={Favorites}
         options={{
           title: 'Favorites',
           tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-heart" />,
@@ -50,7 +48,9 @@ function getHeaderTitle(route) {
   switch (routeName) {
     case 'Home':
       return 'Manga World';
-    case 'Links':
-      return 'Links to learn more';
+    case 'Reading':
+      return 'Actually Reading';
+      case 'Favs':
+        return 'My Favorites';
   }
 }
