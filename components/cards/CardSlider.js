@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const screenWidth = Dimensions.get('window').width;
 
-export default CardSilder = (children) => {
+export default CardSilder = ({ children }) => {
 
     return (
         <Container>
@@ -17,13 +17,13 @@ export default CardSilder = (children) => {
 
 const Container = styled.View`
     position: relative;
-    height: ${screenHeight}px;
     width: ${screenWidth}px;
     margin: 0 auto;
     overflow: hidden;
 `;
-
+console.log(`${props => props.width}`)
 const SliderContent = styled.View`
     display: flex;
-    width: ${props => props.width}px; 
+    flex-direction: row;
+    width: 200px; 
 `;
