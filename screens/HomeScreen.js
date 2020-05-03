@@ -38,14 +38,14 @@ export default function HomeScreen() {
         </CardSilder>
       </TopMangas>
 
-      <Popover
+      {/* <Popover
         isVisible={true}>
         <MangaCard
           mangaTitle={'The Gamer'}
           mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
           readers={'801'}
         />
-      </Popover>
+      </Popover> */}
 
       <RowWrapper>
         <MangaCard
