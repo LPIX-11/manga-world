@@ -64,24 +64,6 @@ export default function HomeScreen() {
               </Right>
             </CardItem>
           </Card>
-          <Card style={{ width: 157 }}>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/mangas/cover/kimetsu.jpg')} style={{ height: 100, flex: 1 }} />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Text>
-                  Kimetsu No Yaiba
-              </Text>
-              </Left>
-              <Right>
-                <Button transparent textStyle={{ color: '#87838B' }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
         </CardSilder>
       </TopMangas>
     </Wrapper>
