@@ -24,6 +24,4 @@ export default CardSilder = ({ children }) => {
 
 const Container = styled.View`
     width: ${screenWidth}px;
-    margin: 0 auto;
-    overflow: scroll;
 `;

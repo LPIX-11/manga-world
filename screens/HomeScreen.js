@@ -1,69 +1,36 @@
 import React from 'react';
-import Wrapper from '../components/layout/Wrapper';
-import { Text, Card, CardItem, Left, Thumbnail, Body, Button, Icon, Right } from 'native-base';
-import { Image } from 'react-native';
+
 import styled from 'styled-components';
+
 import CardSilder from '../components/cards/CardSlider';
+import MangaCard from '../components/cards/MangaCard';
+import Wrapper from '../components/layout/Wrapper';
 
 export default function HomeScreen() {
   return (
     <Wrapper>
       <TopMangas>
         <CardSilder>
-          <Card style={{ width: 157 }}>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/mangas/cover/kimetsu.jpg')} style={{ height: 100, flex: 1 }} />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Text>
-                  Kimetsu No Yaiba
-              </Text>
-              </Left>
-              <Right>
-                <Button transparent textStyle={{ color: '#87838B' }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
-          <Card style={{ width: 157 }}>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/mangas/cover/kimetsu.jpg')} style={{ height: 100, flex: 1 }} />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Text>
-                  Kimetsu No Yaiba
-              </Text>
-              </Left>
-              <Right>
-                <Button transparent textStyle={{ color: '#87838B' }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
-          <Card style={{ width: 157 }}>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/mangas/cover/kimetsu.jpg')} style={{ height: 100, flex: 1 }} />
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Text>
-                  Kimetsu No Yaiba
-              </Text>
-              </Left>
-              <Right>
-                <Button transparent textStyle={{ color: '#87838B' }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
+          <MangaCard
+            mangaTitle={'Kimetsu No Yaiba'}
+            mangaImage={require('../assets/images/mangas/cover/kimetsu.jpg')}
+            readers={ '1,926' }
+          />
+          <MangaCard
+            mangaTitle={'Sword Art Online'}
+            mangaImage={require('../assets/images/mangas/cover/sao.jpg')}
+            readers={ '1,101' }
+          />
+          <MangaCard
+            mangaTitle={'Akame ga Kill!'}
+            mangaImage={require('../assets/images/mangas/cover/akame.jpg')}
+            readers={ '1,001' }
+          />
+          <MangaCard
+            mangaTitle={'The Gamer'}
+            mangaImage={require('../assets/images/mangas/cover/thegamer.jpg')}
+            readers={ '801' }
+          />
         </CardSilder>
       </TopMangas>
     </Wrapper>
