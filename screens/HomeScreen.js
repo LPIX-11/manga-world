@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Popover from 'react-native-popover-view';
+import Modal, { SlideAnimation, ModalContent, ModalTitle } from 'react-native-modals';
 
 import styled from 'styled-components';
 
@@ -9,6 +10,12 @@ import MangaCard from '../components/cards/MangaCard';
 
 import RowWrapper from '../components/layout/RowWrapper';
 import Wrapper from '../components/layout/Wrapper';
+import { Content } from 'native-base';
+import { Dimensions } from 'react-native';
+import CustomText from '../components/texts/CustomText';
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 export default function HomeScreen() {
   return (
@@ -46,6 +53,31 @@ export default function HomeScreen() {
           readers={'801'}
         />
       </Popover> */}
+
+      <Content>
+        <Modal
+          visible={false}
+          swipeDirection={['up', 'down']} // can be string or an array
+          swipeThreshold={200} // default 100
+          width={screenWidth}
+          height={screenHeight / 1.2}
+          modalAnimation={new SlideAnimation({
+            slideFrom: 'bottom',
+          })}
+        >
+          <ModalContent>
+            <MangaCard
+              mangaTitle={'The Gamer'}
+              mangaImage={require('../assets/images/mangas/cover/thegamer.jpg')}
+              readers={'801'}
+            />
+            <CustomText
+              text={ 'What if your life is just like playing a game? What if you can upgrade your status and gain more levels? A fantasy world is coming right at you!' }
+            />
+            
+          </ModalContent>
+        </Modal>
+      </Content>
 
       <RowWrapper>
         <MangaCard
