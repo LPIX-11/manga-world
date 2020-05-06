@@ -7,7 +7,7 @@ import CustomText from '../texts/CustomText';
 export default MangaCard = props => {
     if (props.teaser) {
         return (
-            <Card style={{ width: 130, marginEnd: 15 }}>
+            <Card style={{ width: 130, marginEnd: 15 }} {...props}>
                 <CardItem cardBody>
                     <Image source={ props.mangaImage } style={{ height: 200, flex: 1 }} />
                 </CardItem>
@@ -16,7 +16,7 @@ export default MangaCard = props => {
     }
 
     return (
-        <Card style={{ width: 160, marginEnd: 15 }}>
+        <Card style={{ width: 160, marginEnd: 15 }} {...props}>
             <CardItem cardBody>
                 <Image source={ props.mangaImage } style={{ height: 200, flex: 1 }} />
             </CardItem>
