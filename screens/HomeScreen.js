@@ -12,6 +12,7 @@ import Wrapper from '../components/layout/Wrapper';
 import { Content, View } from 'native-base';
 import { Dimensions } from 'react-native';
 import CustomText from '../components/texts/CustomText';
+import Announce from '../components/layout/Announce';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -181,6 +182,17 @@ export default function HomeScreen() {
         </Modal>
       </Content>
 
+      <Announce title={'Slam Dunk'}>
+        <MangaCard
+          mangaTitle={'Slam Dunk'}
+          mangaImage={require('../assets/images/mangas/cover/slam.jpg')}
+          readers={'2,937'}
+          teaserText={`Hanamichi Sakuragi is a bad guy and a gang leader. He resolves everything with his fists and is unpopular with women.
+One day he meets Haruko Akagi, a beautiful young girl. She asks him if he plays basketball since he’s extremely tall. Trying to impress Haruko, he pretends to be a basketball genius. He tries to perform the coolest move in basketball: the slam dunk. He fails miserably.
+After a string of wild events, Hanamichi decides to join his school’s ailing basketball team. He works hard at developing his skills. He tries to learn to play basketball and become the great player Haruko would love.`}
+          banner
+        />
+      </Announce>
     </Wrapper>
   );
 }
