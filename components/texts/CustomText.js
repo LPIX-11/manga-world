@@ -8,11 +8,13 @@ export default CustomText = props => {
         style={{
           color: props.textColor,
           fontFamily: props.fontFamily,
-          fontSize: props.size
+          fontSize: props.size,
+          paddingTop: props.paddingTop,
+          textAlign: props.align
         }}
       >
         {props.text}
       </Text>
-    </View>
+    </View >
   )
 }

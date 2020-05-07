@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Popover from 'react-native-popover-view';
 import Modal, { SlideAnimation, ModalContent, ModalTitle } from 'react-native-modals';
@@ -10,14 +10,37 @@ import MangaCard from '../components/cards/MangaCard';
 
 import RowWrapper from '../components/layout/RowWrapper';
 import Wrapper from '../components/layout/Wrapper';
-import { Content } from 'native-base';
+import { Content, View } from 'native-base';
 import { Dimensions } from 'react-native';
 import CustomText from '../components/texts/CustomText';
+import CardDetails from '../components/cards/CardDetails';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 export default function HomeScreen() {
+
+  const [showDetails, setShowDetails] = useState(false);
+  const [mangaDetails, setMangaDetails] = useState({
+    cover: '',
+    title: '',
+    description: '',
+    readers: '',
+    release_year: ''
+  });
+
+  const _displayDetails = () => {
+    setMangaDetails({
+      cover: require('../assets/images/mangas/cover/kimetsu.jpg'),
+      title: 'Kimetsu No Yaiba',
+      description: 'Demons (鬼 Oni) are a race of monstrous, immortal and malevolent beings ... The Demon Slayers are the central adversary to the Demon race as they are an',
+      readers: '1,926',
+      release_year: '2019'
+    });
+    setShowDetails(true);
+    console.log(showDetails)
+  };
+
   return (
     <Wrapper>
       <TopMangas>
@@ -26,75 +49,62 @@ export default function HomeScreen() {
             mangaTitle={'Kimetsu No Yaiba'}
             mangaImage={require('../assets/images/mangas/cover/kimetsu.jpg')}
             readers={'1,926'}
+            onPress={() => { _displayDetails() }}
           />
           <MangaCard
             mangaTitle={'Sword Art Online'}
             mangaImage={require('../assets/images/mangas/cover/sao.jpg')}
             readers={'1,101'}
+            onPress={() => { _displayDetails() }}
           />
           <MangaCard
             mangaTitle={'Akame ga Kill!'}
             mangaImage={require('../assets/images/mangas/cover/akame.jpg')}
             readers={'1,001'}
+            onPress={() => { _displayDetails() }}
           />
           <MangaCard
             mangaTitle={'The Gamer'}
             mangaImage={require('../assets/images/mangas/cover/thegamer.jpg')}
             readers={'801'}
+            onPress={() => { _displayDetails() }}
           />
         </CardSilder>
       </TopMangas>
 
       {/* <Popover
-        isVisible={true}>
+        isVisible={details}>
         <MangaCard
           mangaTitle={'The Gamer'}
           mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
           readers={'801'}
+          onPress={() => { _displayDetails() }}
         />
       </Popover> */}
-
-      <Content>
-        <Modal
-          visible={false}
-          swipeDirection={['up', 'down']} // can be string or an array
-          swipeThreshold={200} // default 100
-          width={screenWidth}
-          height={screenHeight / 1.2}
-          modalAnimation={new SlideAnimation({
-            slideFrom: 'bottom',
-          })}
-        >
-          <ModalContent>
-            <MangaCard
-              mangaTitle={'The Gamer'}
-              mangaImage={require('../assets/images/mangas/cover/thegamer.jpg')}
-              readers={'801'}
-            />
-            <CustomText
-              text={ 'What if your life is just like playing a game? What if you can upgrade your status and gain more levels? A fantasy world is coming right at you!' }
-            />
-            
-          </ModalContent>
-        </Modal>
-      </Content>
+      {/* <CardDetails
+        show={showDetails}
+      /> */}
 
       <RowWrapper>
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/chivalry.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/iiw.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/bokunohero.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
       </RowWrapper>
 
@@ -102,18 +112,22 @@ export default function HomeScreen() {
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/kimetsu.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/guiltyv1.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/fatestay.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/guiltyv2.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
       </RowWrapper>
 
@@ -121,20 +135,63 @@ export default function HomeScreen() {
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/tokyo.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/sao.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/akame.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/kimetsu.jpg')}
           teaser
+          onPress={() => { _displayDetails() }}
         />
       </RowWrapper>
+
+
+      <Content>
+        <Modal
+          visible={showDetails}
+          swipeDirection={['up', 'down']} // can be string or an array
+          swipeThreshold={200} // default 100
+          width={screenWidth}
+          height={screenHeight / 1.2}
+          onSwipeRelease={() => { setShowDetails(false) }}
+          style={{ position: 'absolute', bottom: 0 }}
+          modalAnimation={new SlideAnimation({
+            slideFrom: 'bottom',
+          })}
+        >
+          <ModalContent>
+            <View style={{ flexDirection: 'row' }}>
+              <MangaCard
+                mangaTitle={mangaDetails.title}
+                mangaImage={mangaDetails.cover}
+                readers={mangaDetails.readers}
+                onPress={() => { _displayDetails() }}
+              />
+              <CustomText
+                paddingTop={11}
+                text={'Demon Slayer'}
+                align={'center'}
+              />
+            </View>
+            <CustomText
+              paddingTop={12}
+              text={mangaDetails.description}
+              align={'justify'}
+            />
+
+          </ModalContent>
+        </Modal>
+      </Content>
+
     </Wrapper>
   );
 }
