@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import Popover from 'react-native-popover-view';
-import Modal, { SlideAnimation, ModalContent, ModalTitle } from 'react-native-modals';
+import Modal, { SlideAnimation, ModalContent } from 'react-native-modals';
 
 import styled from 'styled-components';
 
@@ -13,7 +12,6 @@ import Wrapper from '../components/layout/Wrapper';
 import { Content, View } from 'native-base';
 import { Dimensions } from 'react-native';
 import CustomText from '../components/texts/CustomText';
-import CardDetails from '../components/cards/CardDetails';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -71,19 +69,6 @@ export default function HomeScreen() {
           />
         </CardSilder>
       </TopMangas>
-
-      {/* <Popover
-        isVisible={details}>
-        <MangaCard
-          mangaTitle={'The Gamer'}
-          mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
-          readers={'801'}
-          onPress={() => { _displayDetails() }}
-        />
-      </Popover> */}
-      {/* <CardDetails
-        show={showDetails}
-      /> */}
 
       <RowWrapper>
         <MangaCard
