@@ -9,7 +9,11 @@ export default CustomText = props => {
           color: props.textColor,
           fontFamily: props.fontFamily,
           fontSize: props.size,
+          fontWeight: props.textWeight,
           paddingTop: props.paddingTop,
+          paddingRight: props.paddingRight,
+          paddingBottom: props.paddingBottom,
+          paddingLeft: props.paddingLeft,
           textAlign: props.align
         }}
       >

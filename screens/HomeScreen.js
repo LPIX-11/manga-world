@@ -70,7 +70,7 @@ export default function HomeScreen() {
         </CardSilder>
       </TopMangas>
 
-      <RowWrapper>
+      <RowWrapper title='Continue Reading'>
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
           teaser
@@ -93,7 +93,7 @@ export default function HomeScreen() {
         />
       </RowWrapper>
 
-      <RowWrapper>
+      <RowWrapper title='Recommended For You'>
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/kimetsu.jpg')}
           teaser
@@ -116,7 +116,7 @@ export default function HomeScreen() {
         />
       </RowWrapper>
 
-      <RowWrapper>
+      <RowWrapper title='Exiting New Manga'>
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/tokyo.jpg')}
           teaser
@@ -138,8 +138,6 @@ export default function HomeScreen() {
           onPress={() => { _displayDetails() }}
         />
       </RowWrapper>
-
-
       <Content>
         <Modal
           visible={showDetails}
