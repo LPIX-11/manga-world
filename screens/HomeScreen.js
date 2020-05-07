@@ -71,7 +71,7 @@ export default function HomeScreen() {
         </CardSilder>
       </TopMangas>
 
-      <RowWrapper title='Continue Reading'>
+      <RowWrapper title='Continue Reading…'>
         <MangaCard
           mangaImage={require('../assets/images/mangas/cover/asterix.jpg')}
           teaser
