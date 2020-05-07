@@ -15,9 +15,9 @@ export default RowWrapper = ({ title, children }) => {
                 text={title}
                 textWeight={'700'}
             />
-            <Grid>
+            <Grid style={{ height: 200 }}>
                 {/*  backgroundColor: '#EDEDED', */}
-                <Row style={{ backgroundColor: '#000', borderColor: '#2D2D2D', border: 1, height: 200, paddingHorizontal: 10, paddingTop: 5, paddingBottom: 10 }}>
+                <Row style={{ backgroundColor: '#000', borderColor: '#2D2D2D', border: 1, height: 200, paddingHorizontal: 10, paddingVertical: 10 }}>
                     <CardSlider>
                         {children}
                     </CardSlider>

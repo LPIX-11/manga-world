@@ -31,7 +31,7 @@ export default function HomeScreen() {
     setMangaDetails({
       cover: require('../assets/images/mangas/cover/kimetsu.jpg'),
       title: 'Kimetsu No Yaiba',
-      description: 'Demons (鬼 Oni) are a race of monstrous, immortal and malevolent beings ... The Demon Slayers are the central adversary to the Demon race as they are an',
+      description: 'Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotōge. The story follows Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon (鬼 Oni).',
       readers: '1,926',
       release_year: '2019'
     });
@@ -138,6 +138,7 @@ export default function HomeScreen() {
           onPress={() => { _displayDetails() }}
         />
       </RowWrapper>
+
       <Content>
         <Modal
           visible={showDetails}
@@ -159,18 +160,23 @@ export default function HomeScreen() {
                 readers={mangaDetails.readers}
                 onPress={() => { _displayDetails() }}
               />
-              <CustomText
-                paddingTop={11}
-                text={'Demon Slayer'}
-                align={'center'}
-              />
+              <View style={{ flexWrap: 'wrap', width: '50%' }}>
+                <CustomText
+                  alignment={'center'}
+                  paddingTop={1}
+                  size={18}
+                  text={'Demon Slayer (Kimetsu No Yaiba)'}
+                  textWeight={'700'}
+                />
+              </View>
             </View>
+
             <CustomText
+              content={'justify'}
+              lineHeight={20}
               paddingTop={12}
               text={mangaDetails.description}
-              align={'justify'}
             />
-
           </ModalContent>
         </Modal>
       </Content>
