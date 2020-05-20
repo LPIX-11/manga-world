@@ -37,7 +37,6 @@ export default function HomeScreen() {
       release_year: '2019'
     });
     setShowDetails(true);
-    console.log(showDetails)
   };
 
   return (
@@ -148,7 +147,7 @@ export default function HomeScreen() {
           width={screenWidth}
           height={screenHeight / 1.2}
           onSwipeRelease={() => { setShowDetails(false) }}
-          style={{ position: 'absolute', bottom: 0 }}
+          style={{ flex: 1, justifyContent: 'flex-end' }}
           modalAnimation={new SlideAnimation({
             slideFrom: 'bottom',
           })}

@@ -50,7 +50,7 @@ function getHeaderTitle(route) {
       return 'Manga World';
     case 'Reading':
       return 'Actually Reading';
-      case 'Favs':
-        return 'My Favorites';
+    case 'Favs':
+      return 'My Favorites';
   }
 }
