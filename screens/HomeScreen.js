@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
+import { Content } from 'native-base';
+import { Dimensions } from 'react-native';
 import Modal, { SlideAnimation, ModalContent } from 'react-native-modals';
 
-import styled from 'styled-components';
-
+// Custom Components
+import Announce from '../components/layout/Announce';
 import CardSilder from '../components/cards/CardSlider';
+import CustomText from '../components/texts/CustomText';
 import MangaCard from '../components/cards/MangaCard';
-
 import RowWrapper from '../components/layout/RowWrapper';
 import Wrapper from '../components/layout/Wrapper';
-import { Content, View } from 'native-base';
-import { Dimensions } from 'react-native';
-import CustomText from '../components/texts/CustomText';
-import Announce from '../components/layout/Announce';
+
+import styled from 'styled-components';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -24,6 +24,7 @@ export default function HomeScreen() {
     cover: '',
     title: '',
     description: '',
+    fullTitle: '',
     readers: '',
     release_year: ''
   });
@@ -33,6 +34,7 @@ export default function HomeScreen() {
       cover: require('../assets/images/mangas/cover/kimetsu.jpg'),
       title: 'Kimetsu No Yaiba',
       description: 'Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotōge. The story follows Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon (鬼 Oni).',
+      fullTitle: 'Demon Slayer (Kimetsu No Yaiba)',
       readers: '1,926',
       release_year: '2019'
     });
@@ -153,23 +155,23 @@ export default function HomeScreen() {
           })}
         >
           <ModalContent>
-            <View style={{ flexDirection: 'row' }}>
+            <DetailsContainer>
               <MangaCard
                 mangaTitle={mangaDetails.title}
                 mangaImage={mangaDetails.cover}
                 readers={mangaDetails.readers}
                 onPress={() => { _displayDetails() }}
               />
-              <View style={{ flexWrap: 'wrap', width: '50%' }}>
+              <MangaOverview>
                 <CustomText
                   alignment={'center'}
                   paddingTop={1}
                   size={18}
-                  text={'Demon Slayer (Kimetsu No Yaiba)'}
+                  text={mangaDetails.fullTitle}
                   textWeight={'700'}
                 />
-              </View>
-            </View>
+              </MangaOverview>
+            </DetailsContainer>
 
             <CustomText
               content={'justify'}
@@ -202,6 +204,15 @@ const TopMangas = styled.View`
   flex-direction: row;
   justify-content: center;
   height: 100%;
+`;
+
+const DetailsContainer = styled.View`
+  flex-direction: row;
+`;
+
+const MangaOverview = styled.View`
+  flex-wrap: wrap;
+  width: 50%;
 `;
 
 HomeScreen.navigationOptions = {
