@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 
+import { Content } from 'native-base';
+import { Dimensions } from 'react-native';
 import Modal, { SlideAnimation, ModalContent } from 'react-native-modals';
+
+// Custom Components
+import Announce from '../components/layout/Announce';
+import CardSilder from '../components/cards/CardSlider';
+import CustomText from '../components/texts/CustomText';
+import CustomButton from '../components/buttons/CustomButton';
+import MangaCard from '../components/cards/MangaCard';
+import RowWrapper from '../components/layout/RowWrapper';
+import Wrapper from '../components/layout/Wrapper';
 
 import styled from 'styled-components';
 
-import CardSilder from '../components/cards/CardSlider';
-import MangaCard from '../components/cards/MangaCard';
-
-import RowWrapper from '../components/layout/RowWrapper';
-import Wrapper from '../components/layout/Wrapper';
-import { Content, View } from 'native-base';
-import { Dimensions } from 'react-native';
-import CustomText from '../components/texts/CustomText';
-import Announce from '../components/layout/Announce';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -21,18 +23,24 @@ export default function HomeScreen() {
 
   const [showDetails, setShowDetails] = useState(false);
   const [mangaDetails, setMangaDetails] = useState({
+    category: '',
     cover: '',
+    chapters: '',
     title: '',
     description: '',
+    fullTitle: '',
     readers: '',
     release_year: ''
   });
 
   const _displayDetails = () => {
     setMangaDetails({
+      category: '‎Adventure‎, ‎dark fantasy‎, ‎martial arts',
       cover: require('../assets/images/mangas/cover/kimetsu.jpg'),
+      chapters: '26',
       title: 'Kimetsu No Yaiba',
       description: 'Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotōge. The story follows Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon (鬼 Oni).',
+      fullTitle: 'Demon Slayer (Kimetsu No Yaiba)',
       readers: '1,926',
       release_year: '2019'
     });
@@ -142,8 +150,8 @@ export default function HomeScreen() {
       <Content>
         <Modal
           visible={showDetails}
-          swipeDirection={['up', 'down']} // can be string or an array
-          swipeThreshold={200} // default 100
+          swipeDirection={['up', 'down']}
+          swipeThreshold={200}
           width={screenWidth}
           height={screenHeight / 1.2}
           onSwipeRelease={() => { setShowDetails(false) }}
@@ -153,26 +161,57 @@ export default function HomeScreen() {
           })}
         >
           <ModalContent>
-            <View style={{ flexDirection: 'row' }}>
+            <DetailsContainer>
               <MangaCard
                 mangaTitle={mangaDetails.title}
                 mangaImage={mangaDetails.cover}
                 readers={mangaDetails.readers}
                 onPress={() => { _displayDetails() }}
               />
-              <View style={{ flexWrap: 'wrap', width: '50%' }}>
+              <MangaOverview>
                 <CustomText
-                  alignment={'center'}
                   paddingTop={1}
                   size={18}
-                  text={'Demon Slayer (Kimetsu No Yaiba)'}
-                  textWeight={'700'}
+                  text={mangaDetails.fullTitle}
+                  bold
                 />
-              </View>
-            </View>
+
+                <CustomText
+                  paddingTop={12}
+                  size={18}
+                  text={mangaDetails.release_year}
+                  bold
+                />
+
+                <CustomText
+                  paddingTop={12}
+                  size={10}
+                  text={mangaDetails.category}
+                />
+
+                <CustomText
+                  paddingTop={12}
+                  size={15}
+                  text={`${mangaDetails.chapters} chapters`}
+                />
+                <MangaOverviewActions>
+                  <CustomButton
+                    buttonWidth={126}
+                    positionItems={'center'}
+                    radius={5}
+                    spaceTop={5}
+                    spaceBottom={5}
+                    spaceLeft={5}
+                    textSize={17}
+                    textSize={18}
+                    message={'Read'}
+                  />
+                </MangaOverviewActions>
+              </MangaOverview>
+            </DetailsContainer>
 
             <CustomText
-              content={'justify'}
+              alignText={'justify'}
               lineHeight={20}
               paddingTop={12}
               text={mangaDetails.description}
@@ -202,6 +241,20 @@ const TopMangas = styled.View`
   flex-direction: row;
   justify-content: center;
   height: 100%;
+`;
+
+const DetailsContainer = styled.View`
+  flex-direction: row;
+`;
+
+const MangaOverview = styled.View`
+  flex-wrap: wrap;
+  width: 50%;
+`;
+
+const MangaOverviewActions = styled.View`
+  justify-content: space-between;
+  padding-top: 12px;
 `;
 
 HomeScreen.navigationOptions = {
