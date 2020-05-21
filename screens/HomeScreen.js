@@ -8,11 +8,13 @@ import Modal, { SlideAnimation, ModalContent } from 'react-native-modals';
 import Announce from '../components/layout/Announce';
 import CardSilder from '../components/cards/CardSlider';
 import CustomText from '../components/texts/CustomText';
+import CustomButton from '../components/buttons/CustomButton';
 import MangaCard from '../components/cards/MangaCard';
 import RowWrapper from '../components/layout/RowWrapper';
 import Wrapper from '../components/layout/Wrapper';
 
 import styled from 'styled-components';
+
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -168,41 +170,48 @@ export default function HomeScreen() {
               />
               <MangaOverview>
                 <CustomText
-                  alignment={'center'}
                   paddingTop={1}
                   size={18}
                   text={mangaDetails.fullTitle}
-                  textWeight={'700'}
+                  bold
                 />
 
                 <CustomText
-                  alignment={'center'}
                   paddingTop={12}
                   size={18}
                   text={mangaDetails.release_year}
-                  textWeight={'700'}
+                  bold
                 />
 
                 <CustomText
-                  alignment={'center'}
                   paddingTop={12}
                   size={10}
                   text={mangaDetails.category}
-                  textWeight={'400'}
                 />
 
                 <CustomText
-                  alignment={'center'}
                   paddingTop={12}
                   size={15}
                   text={`${mangaDetails.chapters} chapters`}
-                  textWeight={'500'}
                 />
+                <MangaOverviewActions>
+                  <CustomButton
+                    buttonWidth={126}
+                    positionItems={'center'}
+                    radius={5}
+                    spaceTop={5}
+                    spaceBottom={5}
+                    spaceLeft={5}
+                    textSize={17}
+                    textSize={18}
+                    message={'Read'}
+                  />
+                </MangaOverviewActions>
               </MangaOverview>
             </DetailsContainer>
 
             <CustomText
-              content={'justify'}
+              alignText={'justify'}
               lineHeight={20}
               paddingTop={12}
               text={mangaDetails.description}
@@ -241,6 +250,11 @@ const DetailsContainer = styled.View`
 const MangaOverview = styled.View`
   flex-wrap: wrap;
   width: 50%;
+`;
+
+const MangaOverviewActions = styled.View`
+  justify-content: space-between;
+  padding-top: 12px;
 `;
 
 HomeScreen.navigationOptions = {

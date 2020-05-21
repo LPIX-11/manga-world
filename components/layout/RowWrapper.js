@@ -13,7 +13,7 @@ export default RowWrapper = ({ title, children }) => {
                 paddingBottom={5}
                 size={14}
                 text={title}
-                textWeight={'700'}
+                bold
             />
             <Grid style={{ height: 200 }}>
                 {/*  backgroundColor: '#EDEDED', */}
