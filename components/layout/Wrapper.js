@@ -3,9 +3,9 @@ import { Container, Content } from 'native-base';
 
 const Wrapper = ({ children }) => {
     return (
-        <Container>
+        <Container style={{ backgroundColor: '#000' }}>
             <Content>
-                { children }
+                {children}
             </Content>
         </Container>
     )

@@ -26,7 +26,7 @@ export default MangaCard = props => {
                     <CardItem cardBody>
                         <Image source={props.mangaImage} style={{ height: 200, flex: 1 }} />
                     </CardItem>
-                    <CardItem style={{ flexDirection: 'column' }}>
+                    <CardItem style={{ flexDirection: 'column', backgroundColor: '#000' }}>
                         <View style={{ flexDirection: 'row' }}>
                             <Left>
                                 <CustomText
@@ -45,7 +45,7 @@ export default MangaCard = props => {
                         </View>
                         <Body>
                             <CustomText
-                                content={'justify'}
+                                alignText={'justify'}
                                 lineHeight={20}
                                 text={props.teaserText}
                             />
@@ -63,7 +63,7 @@ export default MangaCard = props => {
                 <CardItem cardBody>
                     <Image source={props.mangaImage} style={{ height: 200, flex: 1 }} />
                 </CardItem>
-                <CardItem>
+                <CardItem style={{ backgroundColor: '#000' }}>
                     <Left>
                         <CustomText
                             size={11}
