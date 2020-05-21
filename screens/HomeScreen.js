@@ -21,7 +21,9 @@ export default function HomeScreen() {
 
   const [showDetails, setShowDetails] = useState(false);
   const [mangaDetails, setMangaDetails] = useState({
+    category: '',
     cover: '',
+    chapters: '',
     title: '',
     description: '',
     fullTitle: '',
@@ -31,7 +33,9 @@ export default function HomeScreen() {
 
   const _displayDetails = () => {
     setMangaDetails({
+      category: '‎Adventure‎, ‎dark fantasy‎, ‎martial arts',
       cover: require('../assets/images/mangas/cover/kimetsu.jpg'),
+      chapters: '26',
       title: 'Kimetsu No Yaiba',
       description: 'Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotōge. The story follows Tanjiro Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister Nezuko is turned into a demon (鬼 Oni).',
       fullTitle: 'Demon Slayer (Kimetsu No Yaiba)',
@@ -144,8 +148,8 @@ export default function HomeScreen() {
       <Content>
         <Modal
           visible={showDetails}
-          swipeDirection={['up', 'down']} // can be string or an array
-          swipeThreshold={200} // default 100
+          swipeDirection={['up', 'down']}
+          swipeThreshold={200}
           width={screenWidth}
           height={screenHeight / 1.2}
           onSwipeRelease={() => { setShowDetails(false) }}
@@ -169,6 +173,30 @@ export default function HomeScreen() {
                   size={18}
                   text={mangaDetails.fullTitle}
                   textWeight={'700'}
+                />
+
+                <CustomText
+                  alignment={'center'}
+                  paddingTop={12}
+                  size={18}
+                  text={mangaDetails.release_year}
+                  textWeight={'700'}
+                />
+
+                <CustomText
+                  alignment={'center'}
+                  paddingTop={12}
+                  size={10}
+                  text={mangaDetails.category}
+                  textWeight={'400'}
+                />
+
+                <CustomText
+                  alignment={'center'}
+                  paddingTop={12}
+                  size={15}
+                  text={`${mangaDetails.chapters} chapters`}
+                  textWeight={'500'}
                 />
               </MangaOverview>
             </DetailsContainer>
