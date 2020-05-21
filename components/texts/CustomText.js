@@ -12,7 +12,7 @@ export default CustomText = props => {
       width: props.width
     }}>
       <Text style={{
-        color: props.textColor ? props.textColor : '#000000',
+        color: props.textColor ? props.textColor : '#FFFFFF',
         fontSize: props.size,
         fontStyle: props.textStyle,
         fontWeight: props.bold ? '700' : '400',

@@ -9,10 +9,22 @@ const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
 
 export default function BottomTabNavigator({ navigation, route }) {
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
+  navigation.setOptions({
+    headerTitle: getHeaderTitle(route),
+    headerStyle: {
+      backgroundColor: '#000',
+    },
+    headerTintColor: '#fff'
+  });
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+    <BottomTab.Navigator
+      initialRouteName={INITIAL_ROUTE_NAME}
+      tabBarOptions={{
+        activeTintColor: '#FFF',
+        activeBackgroundColor: '#000',
+        inactiveBackgroundColor: '#000'
+      }}>
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
