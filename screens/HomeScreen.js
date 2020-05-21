@@ -153,14 +153,13 @@ export default function HomeScreen() {
           swipeDirection={['up', 'down']}
           swipeThreshold={200}
           width={screenWidth}
-          height={screenHeight / 1.2}
           onSwipeRelease={() => { setShowDetails(false) }}
           style={{ flex: 1, justifyContent: 'flex-end' }}
           modalAnimation={new SlideAnimation({
             slideFrom: 'bottom',
           })}
         >
-          <ModalContent>
+          <ModalContent style={{ backgroundColor: '#000', height: screenHeight / 1.3 }}>
             <DetailsContainer>
               <MangaCard
                 mangaTitle={mangaDetails.title}
@@ -196,6 +195,7 @@ export default function HomeScreen() {
                 />
                 <MangaOverviewActions>
                   <CustomButton
+                    background={'#139BFB'}
                     buttonWidth={126}
                     positionItems={'center'}
                     radius={5}
